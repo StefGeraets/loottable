@@ -4,7 +4,7 @@ Inspired by the revamped [Treasure/Loot table](https://www.youtube.com/watch?v=U
 
 It can be used on [github pages](https://stefgeraets.github.io/loottable/)
 
-It is used during or before a game of Dungeons and Dragons 5e to generate individual monster loot or hoard treasure based on [this table](https://github.com/StefGeraets/loottable/blob/master/files/).
+It is used during or before a game of Dungeons and Dragons 5e to generate individual monster loot or hoard treasure based on [this table](https://github.com/StefGeraets/loottable/blob/master/files/Random%20Treasure%20Tables%20-%20XP%20to%20Level%203.pdf).
 
 ## Install
 
@@ -47,7 +47,7 @@ yarn build
 - [ ] Re-roll random Gem colour
 - [ ] Roll random art objects from DMG
 - [ ] Re-roll individual art objects
-- [ ] Roll random magic items from [provided table](https://github.com/StefGeraets/loottable/blob/master/files/)
+- [ ] Roll random magic items from [provided table](https://github.com/StefGeraets/loottable/blob/master/files/Magic%20Item%20Tables.pdf)
 - [ ] Re-roll individual art objects
 - [ ] User customized magic item table
 

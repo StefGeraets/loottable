@@ -1,0 +1,16 @@
+html {
+  background: $gray-900;
+  font-family: $font-family;
+  color: $gray-100;
+}
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 90vw;
+  margin: $spacing-l auto;
+  @include screen(sm) {
+    max-width: 80vw;
+  }
+}

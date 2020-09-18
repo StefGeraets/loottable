@@ -1,0 +1,20 @@
+.radio-group {
+  input[type="radio"] {
+    display: none;
+  }
+  label {
+    display: inline-block;
+    background-color: $gray-800;
+    color: $gray-400;
+    padding: $spacing-xxs $spacing-s;
+    cursor: pointer;
+    font-size: $spacing-s;
+    text-transform: uppercase;
+    font-weight: $weight-bold;
+  }
+
+  input[type="radio"]:checked+label {
+    background-color: $red-600;
+    color: $red-100;
+  }
+}

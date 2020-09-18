@@ -1,0 +1,29 @@
+.site-title {
+  color: $red-600;
+  font-size: $spacing-l + $spacing-base;
+  line-height: $spacing-xl;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: -0.75px;
+  margin-bottom: 0;
+  @include screen(sm) {
+    font-size: $spacing-xl;
+    line-height: $spacing-xs + $spacing-xl;
+  }
+}
+
+.site-subtitle {
+  color: $gray-100;
+  font-size: $spacing-s;
+  text-align: center;
+  font-weight: $weight-normal;
+  margin: 0;
+  @include screen(sm) {
+    font-size: $spacing-base;
+  }
+  a {
+    color: $gray-100;
+    text-decoration: none;
+    border-bottom: 2px solid $red-600;
+  }
+}

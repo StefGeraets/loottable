@@ -1,0 +1,55 @@
+.treasure-container {
+  margin-top: $spacing-l;
+  .treasure-result {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    h2 {
+      display: inline-block;
+      background: $gray-800;
+      border-radius: $spacing-base;
+      padding: $spacing-l;
+      margin: $spacing-xs;
+
+      small {
+        display: flex;
+        justify-content: center;
+        margin-top: $spacing-xs;
+        font-size: $spacing-base;
+        font-weight: $weight-normal;
+        color: $gray-500;
+      }
+    }
+  }
+  .treasure-calculation {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: $spacing-l;
+    > *+* {
+      margin-left: $spacing-l;
+    }
+    > div {
+      color: $gray-100;
+      font-weight: $weight-bold;
+      text-align: center;
+      strong {
+        display: block;
+        font-weight: $weight-normal;
+        font-size: $spacing-s;
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+        margin-bottom: $spacing-xs;
+      }
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: $gray-300;
+      }
+      &.times {
+        align-self: center;
+      }
+    }
+  }
+}

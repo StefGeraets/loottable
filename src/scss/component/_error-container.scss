@@ -1,0 +1,16 @@
+.error-container {
+  position: absolute;
+  top: $spacing-base;
+  right: $spacing-base;
+  max-width: 20vw;
+  p {
+    display: block;
+    margin: 0 0 $spacing-l;
+    padding: $spacing-l;
+    background: $red-700;
+    color: $red-100;
+    border-radius: $spacing-base;
+    box-shadow: $shadow-xl;
+    transition: all .2s ease-in;
+  }
+}

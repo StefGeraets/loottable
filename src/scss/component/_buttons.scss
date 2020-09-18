@@ -1,0 +1,19 @@
+button {
+  background: none;
+  border: 2px solid;
+  border-color: $red-600;
+  color: $red-100;
+  text-transform: uppercase;
+  font-size: $spacing-s;
+  line-height: $spacing-base;
+  padding: $spacing-s $spacing-base;
+  border-radius: 0;
+  box-shadow: none;
+  cursor: pointer;
+  font-weight: $weight-bold;
+  transition: all .2s ease-in-out;
+  &:hover {
+    background: rgba($red-700, .2);
+    border-color: $red-700;
+  }
+}

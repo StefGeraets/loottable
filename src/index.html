@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="site-title">Loot Table</h1>
+    <h5 class="site-subtitle">Inspired by <a href="https://www.youtube.com/watch?v=U1gQYS8GyaE">XP to Level 3</a></h5>
+
+    <div class="settings">
+      <div class="options-container">
+        <div class="radio-group">
+          <input type="radio" id="radioIndividual" name="lootType" value="individual" checked>
+          <label for="radioIndividual">individual</label>
+          
+          <input type="radio" id="radioHoard" name="lootType" value="hoard">
+          <label for="radioHoard">Hoard</label>
+        </div>
+      </div>
+      <div class="form-container">
+        <div class="group character-select">
+          <label for="charTypeSelect">Character Type</label>
+          <select name="charType" id="charTypeSelect" class="styled-select">
+            <option>Wait for data load...</option>
+          </select>
+        </div>
+        <div class="group">
+          <div class="individual-option active">
+            <label for="rating">Challenge Rating*</label>
+            <input type="number" name="Challenge Rating" id="rating" max="99">
+          </div>
+          <div class="hoard-option hidden">
+            <label for="hoardPartyLevel">Average Player Level*</label>
+            <input type="number" name="Party Level" id="hoardPartyLevel" max="20">
+          </div>
+        </div>
+        <div class="group">
+          <div class="individual-option active">
+            <label for="indPartyLevel">Average Player Level*</label>
+            <input type="number" name="Player Lever" id="indPartyLevel" max="20">
+          </div>
+          <div class="hoard-option hidden">
+            <label for="partyMembers">Party Members*</label>
+            <input type="number" name="Party Members" id="partyMembers" max="20">
+          </div>
+        </div>
+        <div class="group">
+          <div class="individual-option active">
+            <label for="fantasyMod">Modifier</label>
+            <select name="FantasyModifier" id="fantasyMod" class="styled-select">
+              <option value="low">Low Fantasy</option>
+              <option value="mid">Mid Fantasy</option>
+              <option value="high">High Fantasy</option>
+            </select>
+          </div>
+          <div class="hoard-option hidden"></div>
+        </div>
+      </div>
+      <div class="error-container" id="errorMsg"></div>
+      <div class="button-container">
+        <button id="submitLoot">Generate Loot</button>
+      </div>
+
+    </div>
+
+    <div class="treasure-container" id="treasureContainer">
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+.options-container {
+  margin-top: $spacing-base;
+  text-align: center;
+  @include screen(md) {
+    text-align: left;
+  }
+}

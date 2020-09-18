@@ -12,27 +12,27 @@ It is used during or before a game of Dungeons and Dragons 5e to generate indivi
 
 ```
 npm install
-```
+
 or
-```
+
 yarn install
 ```
 
 **Run the app locally:**
 ```
 npm run dev
-```
+
 or
-```
+
 yarn dev
 ```
 
 **Build the app:**
 ```
 npm run build
-```
+
 or
-```
+
 yarn build
 ```
 

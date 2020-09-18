@@ -1,0 +1,41 @@
+{
+  "icons": [
+    {
+      "src": "icon_512x512.0886cc4d3d60f5019f9f19769e47763f.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_384x384.8fde756bb23658a63bef37499938331d.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_256x256.d290a7f23136662d88c20113b4d497d9.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_192x192.ed003677685d27927088a30431383ee0.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_128x128.5392ad3d1b7111781db770f7e0ade3a6.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icon_96x96.ee379cb7df9ddc1f1670a4a5f6c276ad.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "D&D Loot Table",
+  "short_name": "DnD Loot Table",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "Loot Table based on XP to Level 3",
+  "background_color": "#ffffff"
+}

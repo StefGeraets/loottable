@@ -1,34 +1,22 @@
-import { individual } from '../../data/individual'
 import * as error from '../helpers/errorHandler'
-
-const findChar = (charName) => {
-  let result = individual.type.find(char => char.name === charName)
-  return result
-}
-
-const rollDice = (amount) => {
-  return Math.floor(Math.random() * amount) + 1
-}
+import * as find from './findController'
+import * as dice from './rollController'
 
 const baseGold = (goldInput) => {
-  let total
+  let goldTotal
   let diceResults = []
   if (goldInput.baseGold) {
-    total = goldInput.baseGold
+    goldTotal = goldInput.baseGold;
   } else {
-    let totalRoll = 0;
-    for (let i = 0; i < goldInput.diceAmount; i++) {
-      let diceRoll = rollDice(goldInput.diceType);
-      diceResults.push(diceRoll)
-      totalRoll += diceRoll
-    }
-    total = totalRoll
+    let { total, rolls } = dice.rollMultiple(goldInput.diceAmount, goldInput.diceType);
+    goldTotal = total;
+    diceResults = rolls;
   }
   
   return {
-    total: total,
-    diceRolls: diceResults
-  }
+    total: goldTotal,
+    diceRolls: diceResults,
+  };
 }
 
 const aplMultiplier = (inputData, tempLoot) => {
@@ -68,32 +56,28 @@ const calcChance = (charData, inputData) => {
   return result
 }
 
-const loot = (inputData) => {
-  const charData = findChar(inputData.charType)
+export const init = (lootData) => {
+  const charData = find.findIndividual(lootData.charType);
 
-  let getLoot = calcChance(charData, inputData)
+  let getLoot = calcChance(charData, lootData);
 
-  let totalLoot = 0
+  let totalLoot = 0;
 
-  let tempGold = baseGold(charData.baseGp)
-  let tempMod = charData.settings[inputData.fantasyMod]
-  let tempLoot = tempGold.total * tempMod
+  let tempGold = baseGold(charData.baseGp);
+  let tempMod = charData.settings[lootData.fantasyMod];
+  let tempLoot = tempGold.total * tempMod;
 
   if (charData.modifier !== 1) {
-    tempLoot = aplMultiplier(inputData, tempLoot)
+    tempLoot = aplMultiplier(lootData, tempLoot);
   }
 
-  totalLoot = tempLoot
-  
+  totalLoot = tempLoot;
+
   return {
     charData: charData,
     diceRolls: tempGold.diceRolls,
     lootTotal: totalLoot,
-    formData: inputData,
+    formData: lootData,
     getLoot: getLoot,
-  }
-}
-
-export const init = (lootData) => {
-  return loot(lootData)
+  };
 }

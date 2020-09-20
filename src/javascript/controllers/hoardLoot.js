@@ -1,34 +1,23 @@
-import { hoard } from '../../data/hoard'
+import * as find from './findController'
 import * as error from '../helpers/errorHandler'
-
-const findChar = (charName) => {
-  let result = hoard.type.find(char => char.name === charName)
-  return result
-}
-
-const rollDice = (amount) => {
-  return Math.floor(Math.random() * amount) + 1
-}
+import * as dice from './rollController'
 
 const baseGold = (goldInput) => {
-  let total
+  let goldTotal
   let diceResults = []
+
   if (goldInput.base) {
-    total = goldInput.base
+    goldTotal = goldInput.base;
   } else {
-    let totalRoll = 0;
-    for (let i = 0; i < goldInput.diceAmount; i++) {
-      let diceRoll = rollDice(goldInput.diceType);
-      diceResults.push(diceRoll)
-      totalRoll += diceRoll
-    }
-    total = totalRoll
+    let { total, rolls } = dice.rollMultiple(goldInput.diceAmount, goldInput.diceType)
+    goldTotal = total
+    diceResults = rolls
   }
 
   return {
-    total: total,
-    diceRolls: diceResults
-  }
+    total: goldTotal,
+    diceRolls: diceResults,
+  };
 }
 
 const addGoldMultiplier = (check, total) => {
@@ -81,13 +70,9 @@ const calculateGems = (charData, lootData) => {
     }
     // dice amount
     if (charData.gems.diceToRoll) {
-      let totalRoll = 0;
-      for (let i = 0; i < charData.gems.diceAmount; i++) {
-        let diceRoll = rollDice(charData.gems.diceType);
-        diceRolls.push(diceRoll)
-        totalRoll += diceRoll
-      }
-      gemAmount = totalRoll
+      let { total, rolls } = dice.rollMultiple(charData.gems.diceAmount, charData.gems.diceType)
+      gemAmount = total
+      diceRolls = rolls
     }
     // set worth and type
     worth = charData.gems.worth
@@ -105,7 +90,7 @@ const calculateGems = (charData, lootData) => {
 const calculateArt = (charData, lootData) => {
   let artAmount = 0
   let diceRolls = []
-  let worth, extra, other
+  let worth, other
 
   if (charData.art) {
     // base amount
@@ -122,32 +107,20 @@ const calculateArt = (charData, lootData) => {
     }
     // Roll Dice
     if (charData.art.diceToRoll) {
-      let totalRoll = 0;
-      for (let i = 0; i < charData.art.diceAmount; i++) {
-        let diceRoll = rollDice(charData.art.diceType);
-        diceRolls.push(diceRoll)
-        totalRoll += diceRoll
-      }
-      artAmount = totalRoll
+      let { total, rolls } = dice.rollMultiple(charData.art.diceAmount, charData.art.diceType)
+      artAmount = total
+      diceRolls = rolls
     }
 
     // worth, info
-    if (charData.art.worth) {
-      worth = charData.art.worth
-    }
-    if (charData.art.extra) {
-      extra = charData.art.extra
-    }
-    if (charData.art.other) {
-      other = charData.art.other
-    }
+    worth = charData.art.worth
+    other = charData.art.other
   }
 
   return {
     total: artAmount,
     diceRolls: diceRolls,
     worth: worth,
-    extra: extra,
     other: other
   }
 }
@@ -169,13 +142,9 @@ const calculateMagicItems = (charData, lootData) => {
   }
 
   if (charData.magicItem.diceToRoll) {
-    let totalRoll = 0;
-    for (let i = 0; i < charData.magicItem.diceAmount; i++) {
-      let diceRoll = rollDice(charData.magicItem.diceType);
-      diceRolls.push(diceRoll)
-      totalRoll += diceRoll
-    }
-    itemsTotal = totalRoll
+    let { total, rolls } = dice.rollMultiple(charData.magicItem.diceAmount, charData.magicItem.diceType)
+    itemsTotal = total
+    diceRolls = rolls
   }
 
   return {
@@ -185,7 +154,7 @@ const calculateMagicItems = (charData, lootData) => {
 }
 
 export const init = (lootData) => {
-  const charData = findChar(lootData.charType)
+  const charData = find.findHoard(lootData.charType)
   
   // Gold Loot
   let gold = calculateGold(charData, lootData)
